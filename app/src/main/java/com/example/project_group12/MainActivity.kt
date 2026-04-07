@@ -261,7 +261,8 @@ class MainActivity : AppCompatActivity() {
                         MusicPlayerManager.stop()
                         authRepository.logout()
                         withContext(Dispatchers.Main) {
-                            val intent = Intent(this@MainActivity, MainActivity::class.java)
+                            // CHUYỂN VỀ LOGIN THAY VÌ MAIN
+                            val intent = Intent(this@MainActivity, LoginActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             finish()
