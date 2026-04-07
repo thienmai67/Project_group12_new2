@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Khi được chọn: Màu cam sáng neon -->
+    <item android:color="#FFAB40" android:state_checked="true" />
+    <!-- Khi không được chọn: Màu trắng mờ hoặc xám nhạt -->
+    <item android:color="#80FFFFFF" />
+</selector>

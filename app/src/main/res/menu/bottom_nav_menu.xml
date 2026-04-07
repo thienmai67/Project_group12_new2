@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@drawable/ic_home_modern"
         android:title="Trang chủ" />
 
     <item
         android:id="@+id/nav_shuffle"
-        android:icon="@android:drawable/ic_popup_sync"
+        android:icon="@drawable/ic_shuffle_modern"
         android:title="Ngẫu nhiên" />
 
     <item
         android:id="@+id/nav_favorites"
-        android:icon="@android:drawable/ic_menu_agenda"
+        android:icon="@drawable/ic_heart_outline"
         android:title="Yêu thích" />
 
     <item
         android:id="@+id/nav_download"
-        android:icon="@android:drawable/ic_menu_save"
+        android:icon="@drawable/ic_download_modern"
         android:title="Đã tải" />
 </menu>

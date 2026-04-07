@@ -215,15 +215,13 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
         android:id="@+id/layoutMiniPlayer"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="15dp"
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/bg_card_glass"
+        android:background="@drawable/bg_mini_player_neon"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
 
         <LinearLayout
@@ -238,14 +236,14 @@
                 android:layout_height="55dp"
                 app:cardCornerRadius="27.5dp"
                 app:strokeWidth="2dp"
-                app:strokeColor="@color/neon_blue">
+                app:strokeColor="@color/neon_teal">
                 <ImageView
                     android:id="@+id/imgMiniCover"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@android:drawable/ic_media_play"
                     android:scaleType="centerCrop"
-                    android:background="#5C2000" />
+                    android:background="@color/dark_teal" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -270,7 +268,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ca sĩ"
-                    android:textColor="@color/neon_blue"
+                    android:textColor="@color/neon_teal"
                     android:textSize="13sp"
                     android:singleLine="true" />
             </LinearLayout>
@@ -288,7 +286,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/ic_media_play"
-                app:tint="@color/admin_delete"
+                app:tint="@color/neon_teal"
                 android:layout_marginHorizontal="4dp"
                 android:background="@drawable/bg_edittext_glass"
                 android:padding="8dp"/>
@@ -301,17 +299,18 @@
                 app:tint="@color/white"
                 android:layout_marginStart="8dp"/>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@drawable/bg_admin_btn_delete"
-        app:itemIconTint="@color/bg_dark_blue"
-        app:itemTextColor="@color/white"
-        app:itemRippleColor="@color/neon_pink"
-        app:itemIconSize="28dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_bottom_nav_glass"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemRippleColor="@color/bg_card_glass"
+        app:itemIconSize="24dp"
+        app:elevation="0dp"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent" />
