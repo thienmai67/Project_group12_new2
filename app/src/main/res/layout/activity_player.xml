@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212">
+    android:background="@drawable/bg_player_gradient">
 
     <ImageView
         android:id="@+id/imgBlurredBackground"
@@ -14,7 +14,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CC000000" /> <LinearLayout
+        android:background="#80000000" /> <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -29,7 +29,7 @@
     android:layout_height="32dp"
     android:layout_alignParentStart="true"
     android:src="@android:drawable/ic_menu_close_clear_cancel"
-    app:tint="#00E5FF"
+    app:tint="#FF8C42"
     android:background="?attr/selectableItemBackgroundBorderless"/>
 
     <TextView
@@ -37,11 +37,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="ĐANG PHÁT"
-        android:textColor="#00E5FF"
+        android:textColor="#FF8C42"
         android:textSize="14sp"
         android:textStyle="bold"
         android:letterSpacing="0.2"
-        android:shadowColor="#00E5FF"
+        android:shadowColor="#FF4500"
         android:shadowRadius="8"/>
 </RelativeLayout>
 
@@ -69,7 +69,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
-            android:background="#00E5FF"
+            android:background="#FF8C42"
             android:alpha="0.8"
             app:cardCornerRadius="16dp" />
     </com.google.android.material.card.MaterialCardView>
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ca sĩ"
-            android:textColor="#00E5FF"
+            android:textColor="#FF8C42"
             android:textSize="16sp"
             android:layout_marginTop="4dp"/>
     </LinearLayout>
@@ -119,8 +119,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:progressTint="#00E5FF"
-        android:thumbTint="#FF007F"
+        android:progressTint="#FF8C42"
+        android:thumbTint="#FF4500"
         android:progressBackgroundTint="#4DFFFFFF"/>
 
     <RelativeLayout
@@ -158,7 +158,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@android:drawable/ic_media_previous"
-            app:tint="#00E5FF"
+            app:tint="#FF8C42"
             android:layout_marginEnd="24dp"
             android:background="?attr/selectableItemBackgroundBorderless"/>
 
@@ -166,7 +166,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             app:cardCornerRadius="32dp"
-            app:cardBackgroundColor="#FF007F"
+            app:cardBackgroundColor="#FF4500"
             app:cardElevation="8dp">
 
             <ImageView
@@ -184,7 +184,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@android:drawable/ic_media_next"
-            app:tint="#00E5FF"
+            app:tint="#FF8C42"
             android:layout_marginStart="24dp"
             android:background="?attr/selectableItemBackgroundBorderless"/>
     </LinearLayout>

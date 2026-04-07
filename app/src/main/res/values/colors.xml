@@ -3,20 +3,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Super Neon Palette -->
-    <color name="neon_blue">#00E5FF</color>
-    <color name="neon_pink">#FF007F</color>
-    <color name="neon_purple">#BC13FE</color>
-    <color name="neon_yellow">#F3FB49</color>
-    <color name="neon_green">#39FF14</color>
-    
-    <!-- Deep Modern Backgrounds -->
-    <color name="bg_dark_blue">#0A0B1E</color>
-    <color name="bg_card_glass">#12FFFFFF</color>
-    <color name="bg_glass_stroke">#26FFFFFF</color>
-    <color name="text_secondary">#99FFFFFF</color>
-    
-    <!-- Minimalist Admin Colors -->
-    <color name="admin_edit">#00E5FF</color>
+    <!-- Sunset Orange Palette -->
+    <color name="neon_blue">#FF8C42</color>
+    <color name="neon_pink">#FF4500</color>
+    <color name="neon_purple">#FF6B35</color>
+    <color name="neon_yellow">#FFD166</color>
+    <color name="neon_green">#FFAA5E</color>
+
+    <!-- Deep Sunset Backgrounds -->
+    <color name="bg_dark_blue">#0D0500</color>
+    <color name="bg_card_glass">#1AFF6B35</color>
+    <color name="bg_glass_stroke">#33FF8C42</color>
+    <color name="text_secondary">#CCFF8C42</color>
+
+    <!-- Admin Colors -->
+    <color name="admin_edit">#FF8C42</color>
     <color name="admin_delete">#FF4D4D</color>
 </resources>

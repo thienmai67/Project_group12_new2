@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Chào bạn"
-            android:textColor="@color/neon_blue"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             android:shadowColor="@color/neon_blue"
@@ -105,13 +105,13 @@
                     android:orientation="vertical"
                     android:gravity="center_vertical"
                     android:padding="28dp"
-                    android:background="@drawable/bg_main_gradient"
+                    android:background="@drawable/bg_auth_gradient"
                     android:alpha="0.85">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NEW RELEASE"
-                        android:textColor="@color/neon_pink"
+                        android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.3"/>
@@ -198,7 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Xu hướng"
-                android:textColor="@color/neon_pink"
+                android:textColor="#85E9CA"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="16dp"
@@ -245,7 +245,7 @@
                     android:layout_height="match_parent"
                     android:src="@android:drawable/ic_media_play"
                     android:scaleType="centerCrop"
-                    android:background="#444" />
+                    android:background="#5C2000" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -288,7 +288,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/ic_media_play"
-                app:tint="@color/neon_pink"
+                app:tint="@color/admin_delete"
                 android:layout_marginHorizontal="4dp"
                 android:background="@drawable/bg_edittext_glass"
                 android:padding="8dp"/>
@@ -307,8 +307,8 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@color/bg_dark_blue"
-        app:itemIconTint="@color/neon_blue"
+        android:background="@drawable/bg_admin_btn_delete"
+        app:itemIconTint="@color/bg_dark_blue"
         app:itemTextColor="@color/white"
         app:itemRippleColor="@color/neon_pink"
         app:itemIconSize="28dp"
