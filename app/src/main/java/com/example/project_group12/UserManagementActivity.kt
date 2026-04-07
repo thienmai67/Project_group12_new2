@@ -2,13 +2,14 @@ package com.example.project_group12
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_group12.data.AppDatabase
-import com.example.project_group12.data.UserModel // QUAN TRỌNG: Dòng này để fix lỗi Unresolved reference
+import com.example.project_group12.data.UserModel
 import com.example.project_group12.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,6 +28,12 @@ class UserManagementActivity : AppCompatActivity() {
         repository = AuthRepository(dao)
         rvUsers = findViewById(R.id.rvUsers)
         rvUsers.layoutManager = LinearLayoutManager(this)
+
+        // BẮT SỰ KIỆN NÚT QUAY LẠI
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish() // Lệnh này sẽ đóng trang hiện tại và quay về trang trước đó
+        }
 
         adapter = UserAdapter(
             users = emptyList(),
