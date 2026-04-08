@@ -14,209 +14,229 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000" /> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="24dp"
-    android:paddingTop="24dp"
-    android:paddingBottom="16dp"> <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"> <ImageView
-    android:id="@+id/btnPlayerBack"
-    android:layout_width="32dp"
-    android:layout_height="32dp"
-    android:layout_alignParentStart="true"
-    android:src="@android:drawable/ic_menu_close_clear_cancel"
-    app:tint="#FF8C42"
-    android:background="?attr/selectableItemBackgroundBorderless"/>
+        android:background="#80000000" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="ĐANG PHÁT"
-        android:textColor="#FF8C42"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.2"
-        android:shadowColor="#FF4500"
-        android:shadowRadius="8"/>
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardPlayerCover"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"
-        app:cardCornerRadius="115dp"
-        app:cardElevation="24dp"
-        app:strokeWidth="4dp"
-        app:strokeColor="#33FFFFFF"
-        android:backgroundTint="#000000">
-
-        <ImageView
-            android:id="@+id/imgPlayerCover"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@android:drawable/ic_media_play"
-            android:scaleType="centerCrop" />
-
-        <View
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="#FF8C42"
-            android:alpha="0.8"
-            app:cardCornerRadius="16dp" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="16dp"> <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvPlayerTitle"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên bài hát"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:singleLine="true"/>
-
-        <TextView
-            android:id="@+id/tvPlayerArtist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ca sĩ"
-            android:textColor="#FF8C42"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp"/>
-    </LinearLayout>
-
-        <ImageView
-            android:id="@+id/btnPlayerLike"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/ic_heart_outline"
-            app:tint="#FFFFFF"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-    </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/seekBarPlayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:progressTint="#FF8C42"
-        android:thumbTint="#FF4500"
-        android:progressBackgroundTint="#4DFFFFFF"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginBottom="24dp"> <TextView
-        android:id="@+id/tvCurrentTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0:00"
-        android:textColor="#B3B3B3"
-        android:textSize="13sp"
-        android:layout_alignParentStart="true"/>
-
-        <TextView
-            android:id="@+id/tvTotalTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0:00"
-            android:textColor="#B3B3B3"
-            android:textSize="13sp"
-            android:layout_alignParentEnd="true"/>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="24dp">
-
-        <ImageView
-            android:id="@+id/btnPlayerPrev"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@android:drawable/ic_media_previous"
-            app:tint="#FF8C42"
-            android:layout_marginEnd="24dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            app:cardCornerRadius="32dp"
-            app:cardBackgroundColor="#FF4500"
-            app:cardElevation="8dp">
+            android:layout_marginBottom="16dp">
 
             <ImageView
-                android:id="@+id/btnPlayerPlayPause"
+                android:id="@+id/btnPlayerBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentStart="true"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="#FF8C42"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="ĐANG PHÁT"
+                android:textColor="#FF8C42"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.2"
+                android:shadowColor="#FF4500"
+                android:shadowRadius="8"/>
+        </RelativeLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPlayerCover"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="115dp"
+            app:cardElevation="24dp"
+            app:strokeWidth="4dp"
+            app:strokeColor="#33FFFFFF"
+            android:backgroundTint="#000000">
+
+            <ImageView
+                android:id="@+id/imgPlayerCover"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
-                android:src="@android:drawable/ic_media_pause"
-                app:tint="#FFFFFF"
-                android:background="?attr/selectableItemBackground"/>
+                android:src="@android:drawable/ic_media_play"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="#FF8C42"
+                android:alpha="0.8"
+                app:cardCornerRadius="16dp" />
         </com.google.android.material.card.MaterialCardView>
 
-        <ImageView
-            android:id="@+id/btnPlayerNext"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@android:drawable/ic_media_next"
-            app:tint="#FF8C42"
-            android:layout_marginStart="24dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLyrics"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btnPlayerLyrics"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LỜI NHẠC"
-            android:textColor="#FFFFFF"
-            android:background="#33FFFFFF"
-            android:layout_marginEnd="8dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
 
-        <Button
-            android:id="@+id/btnPlayerDownload"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPlayerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên bài hát"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tvPlayerArtist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ca sĩ"
+                    android:textColor="#FF8C42"
+                    android:textSize="16sp"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnPlayerLike"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_heart_outline"
+                app:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarPlayer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TẢI VỀ"
-            android:textColor="#FFFFFF"
-            android:background="#33FFFFFF"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginBottom="4dp"
+            android:progressTint="#FF8C42"
+            android:thumbTint="#FF4500"
+            android:progressBackgroundTint="#4DFFFFFF"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/tvCurrentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="#B3B3B3"
+                android:textSize="13sp"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/tvTotalTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="#B3B3B3"
+                android:textSize="13sp"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/btnPlayerPrev"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_media_previous"
+                app:tint="#FF8C42"
+                android:layout_marginEnd="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:cardCornerRadius="32dp"
+                app:cardBackgroundColor="#FF4500"
+                app:cardElevation="8dp">
+
+                <ImageView
+                    android:id="@+id/btnPlayerPlayPause"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:src="@android:drawable/ic_media_pause"
+                    app:tint="#FFFFFF"
+                    android:background="?attr/selectableItemBackground"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/btnPlayerNext"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_media_next"
+                app:tint="#FF8C42"
+                android:layout_marginStart="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnPlayerLyrics"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="LỜI NHẠC"
+                android:textColor="#FFFFFF"
+                android:background="#33FFFFFF"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnPlayerDownload"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="TẢI VỀ"
+                android:textColor="#FFFFFF"
+                android:background="#33FFFFFF"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
 
 </RelativeLayout>

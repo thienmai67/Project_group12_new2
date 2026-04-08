@@ -6,17 +6,20 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.BlurTransformation
 import com.example.project_group12.data.AppDatabase
 import com.example.project_group12.data.DownloadedSong
+import com.example.project_group12.data.LyricLine
 import com.example.project_group12.databinding.ActivityPlayerBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,6 +35,18 @@ class PlayerActivity : AppCompatActivity() {
     private var isUserSeeking = false
     private var rotateAnimation: Animation? = null
 
+    // Thêm Adapter và Dữ liệu lời nhạc giả lập (Mock data)
+    private lateinit var lyricsAdapter: LyricsAdapter
+    private val mockLyrics = listOf(
+        LyricLine(0, "♪ (Nhạc dạo) ♪"),
+        LyricLine(5000, "Đêm nay anh không ngủ"),
+        LyricLine(10000, "Nhớ em bao ngày qua"),
+        LyricLine(15000, "Từng hạt mưa rơi tí tách"),
+        LyricLine(20000, "Mang theo bóng hình em..."),
+        LyricLine(25000, "♪ (Điệp khúc) ♪"),
+        LyricLine(30000, "Dù cho mai này xa cách")
+    )
+
     private val updateSeekbarRunnable = object : Runnable {
         override fun run() {
             if (!isUserSeeking) {
@@ -45,6 +60,15 @@ class PlayerActivity : AppCompatActivity() {
                     val currentPos = MusicPlayerManager.getCurrentPosition()
                     binding.seekBarPlayer.progress = currentPos
                     binding.tvCurrentTime.text = formatTime(currentPos)
+
+                    // --- LOGIC CUỘN LỜI NHẠC ---
+                    if (::lyricsAdapter.isInitialized && binding.rvLyrics.visibility == View.VISIBLE) {
+                        val activeIndex = mockLyrics.indexOfLast { it.startTimeMs <= currentPos }
+                        if (activeIndex != -1 && activeIndex != lyricsAdapter.currentLineIndex) {
+                            lyricsAdapter.currentLineIndex = activeIndex
+                            binding.rvLyrics.smoothScrollToPosition(activeIndex)
+                        }
+                    }
 
                     if (isGuest && currentPos >= 30000 && MusicPlayerManager.isPlaying) {
                         MusicPlayerManager.pause()
@@ -73,6 +97,11 @@ class PlayerActivity : AppCompatActivity() {
             val user = dao.getCurrentUser()
             isGuest = (user?.role == "guest" || user == null)
         }
+
+        // --- KHỞI TẠO ADAPTER LỜI NHẠC TRƯỚC KHI GỌI setupListeners() ---
+        lyricsAdapter = LyricsAdapter(mockLyrics)
+        binding.rvLyrics.layoutManager = LinearLayoutManager(this)
+        binding.rvLyrics.adapter = lyricsAdapter
 
         val currentSong = MusicPlayerManager.currentSong
         if (currentSong != null) {
@@ -108,6 +137,8 @@ class PlayerActivity : AppCompatActivity() {
     private fun setupListeners() {
         binding.btnPlayerBack.setOnClickListener { finish() }
 
+        updateLikeButtonIcon(MusicPlayerManager.currentSong?.isFavorite == true)
+
         binding.btnPlayerLike.setOnClickListener {
             if (isGuest) {
                 Toast.makeText(this, "Đăng nhập để thêm vào Yêu thích!", Toast.LENGTH_SHORT).show()
@@ -126,10 +157,10 @@ class PlayerActivity : AppCompatActivity() {
                     updateLikeButtonIcon(newFavStatus)
                     val msg = if (newFavStatus) "Đã thêm vào Yêu thích" else "Đã bỏ Yêu thích"
 
-                    // --- ĐẶT SNACKBAR Ở ĐÂY ĐỂ HIỆN KHI THÀNH CÔNG ---
+                    // Hiện Snackbar xịn xò
                     val snackbar = com.google.android.material.snackbar.Snackbar.make(binding.root, msg, com.google.android.material.snackbar.Snackbar.LENGTH_SHORT)
-                    snackbar.setBackgroundTint(android.graphics.Color.parseColor("#222222")) // Nền đen kính
-                    snackbar.setTextColor(android.graphics.Color.parseColor("#00E5FF")) // Chữ xanh dạ quang
+                    snackbar.setBackgroundTint(Color.parseColor("#222222"))
+                    snackbar.setTextColor(Color.parseColor("#00E5FF"))
                     snackbar.show()
                 }
             }
@@ -161,35 +192,22 @@ class PlayerActivity : AppCompatActivity() {
             }
         })
 
+        // --- SỰ KIỆN BẤM NÚT LỜI NHẠC ---
         binding.btnPlayerLyrics.setOnClickListener {
             if (isGuest) {
-                Toast.makeText(this, "Đăng nhập để xem lời!", Toast.LENGTH_LONG).show()
-            } else {
-                AlertDialog.Builder(this).setTitle("Lời bài hát").setMessage("Đang cập nhật...").show()
-            }
-        }
-
-        updateLikeButtonIcon(MusicPlayerManager.currentSong?.isFavorite == true)
-
-        binding.btnPlayerLike.setOnClickListener {
-            if (isGuest) {
-                Toast.makeText(this, "Đăng nhập để thêm vào Yêu thích!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Đăng nhập để xem lời nhạc!", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
-            val song = MusicPlayerManager.currentSong ?: return@setOnClickListener
-            val newFavStatus = !song.isFavorite
-            MusicPlayerManager.currentSong = song.copy(isFavorite = newFavStatus)
-
-            lifecycleScope.launch(Dispatchers.IO) {
-                val dao = AppDatabase.getDatabase(this@PlayerActivity).appDao()
-                dao.updateFavoriteStatus(song.id, newFavStatus)
-
-                runOnUiThread {
-                    updateLikeButtonIcon(newFavStatus)
-                    val msg = if (newFavStatus) "Đã thêm vào Yêu thích" else "Đã bỏ Yêu thích"
-                    Toast.makeText(this@PlayerActivity, msg, Toast.LENGTH_SHORT).show()
-                }
+            // Chuyển đổi qua lại giữa Đĩa than và Danh sách Lời nhạc
+            if (binding.rvLyrics.visibility == View.GONE) {
+                binding.rvLyrics.visibility = View.VISIBLE
+                binding.cardPlayerCover.visibility = View.GONE
+                binding.btnPlayerLyrics.setTextColor(Color.parseColor("#FF8C42")) // Sáng cam khi bật
+            } else {
+                binding.rvLyrics.visibility = View.GONE
+                binding.cardPlayerCover.visibility = View.VISIBLE
+                binding.btnPlayerLyrics.setTextColor(Color.WHITE) // Trắng khi tắt
             }
         }
 
