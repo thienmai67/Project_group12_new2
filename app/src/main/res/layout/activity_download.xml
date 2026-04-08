@@ -19,7 +19,7 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:src="@android:drawable/ic_menu_revert"
-            app:tint="@color/neon_blue"
+            app:tint="@color/black"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Quay lại" />
 
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="NHẠC ĐÃ TẢI"
-            android:textColor="@color/neon_blue"
+            android:textColor="@color/nav_item_color"
             android:textSize="22sp"
             android:textStyle="bold"
             android:letterSpacing="0.1"

@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:text="ĐĂNG NHẬP"
-            android:textColor="#FF007F"
+            android:textColor="#570B0B"
             android:textStyle="bold"
             android:background="@drawable/bg_edittext_glass"
             android:backgroundTint="#FFFFFF"

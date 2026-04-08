@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="QUẢN LÝ BÀI HÁT"
-            android:textColor="@color/neon_pink"
+            android:textColor="@color/neon_teal"
             android:textSize="22sp"
             android:textStyle="bold"
             android:gravity="center"

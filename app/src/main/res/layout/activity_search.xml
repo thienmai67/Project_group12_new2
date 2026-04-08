@@ -24,7 +24,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@android:drawable/ic_menu_revert"
-                app:tint="@color/neon_blue" />
+                app:tint="@color/black" />
 
             <EditText
                 android:id="@+id/edtSearchInput"

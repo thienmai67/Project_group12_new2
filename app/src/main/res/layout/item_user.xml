@@ -45,5 +45,5 @@
         android:background="@drawable/bg_admin_btn_delete"
         android:padding="9dp"
         android:src="@android:drawable/ic_menu_delete"
-        app:tint="@color/admin_delete" />
+        app:tint="#660B0B" />
 </LinearLayout>
