@@ -52,6 +52,8 @@
             android:exported="false" />
 
         <activity android:name=".UserManagementActivity" android:exported="false" />
+
     </application>
+
 
 </manifest>

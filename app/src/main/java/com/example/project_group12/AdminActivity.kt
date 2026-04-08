@@ -26,7 +26,7 @@ class AdminActivity : AppCompatActivity() {
     private lateinit var viewModel: AdminViewModel
     private lateinit var adapter: AdminSongAdapter
     private var addSongDialog: AlertDialog? = null
-    private var editSongDialog: AlertDialog? = null // Thêm Dialog sửa
+    private var editSongDialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,6 @@ class AdminActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         binding.rvAdminSongs.layoutManager = LinearLayoutManager(this)
 
-        // CẬP NHẬT ADAPTER: Xử lý 2 sự kiện Sửa và Xóa
         adapter = AdminSongAdapter(
             songs = emptyList(),
             onEditClick = { songToEdit ->
@@ -83,6 +82,7 @@ class AdminActivity : AppCompatActivity() {
         val edtGenre = dialogView.findViewById<EditText>(R.id.edtDialogGenre)
         val edtCover = dialogView.findViewById<EditText>(R.id.edtDialogCover)
         val edtMp3 = dialogView.findViewById<EditText>(R.id.edtDialogMp3)
+        val edtLyrics = dialogView.findViewById<EditText>(R.id.edtDialogLyrics) // THÊM DÒNG NÀY
         val btnSave = dialogView.findViewById<Button>(R.id.btnDialogSave)
 
         addSongDialog = AlertDialog.Builder(this).setView(dialogView).create()
@@ -92,15 +92,16 @@ class AdminActivity : AppCompatActivity() {
             val genre = edtGenre.text.toString().trim()
             val coverUrl = edtCover.text.toString().trim()
             val mp3Url = edtMp3.text.toString().trim()
-            viewModel.uploadNewSong(title, artist, coverUrl, mp3Url, genre)
+            val lyrics = edtLyrics.text.toString().trim() // THÊM DÒNG NÀY
+
+            // LƯU Ý: Phải gọi hàm upload có chứa lyrics (Xem bước 3 bên dưới)
+            viewModel.uploadNewSong(title, artist, coverUrl, mp3Url, genre, lyrics)
         }
         addSongDialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         addSongDialog?.show()
     }
 
-    // HÀM MỚI: HIỂN THỊ HỘP THOẠI CHỈNH SỬA
     private fun showEditSongDialog(song: Song) {
-        // Tái sử dụng lại layout dialog_add_song.xml cho lẹ
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_song, null)
 
         val edtTitle = dialogView.findViewById<EditText>(R.id.edtDialogTitle)
@@ -108,28 +109,29 @@ class AdminActivity : AppCompatActivity() {
         val edtGenre = dialogView.findViewById<EditText>(R.id.edtDialogGenre)
         val edtCover = dialogView.findViewById<EditText>(R.id.edtDialogCover)
         val edtMp3 = dialogView.findViewById<EditText>(R.id.edtDialogMp3)
+        val edtLyrics = dialogView.findViewById<EditText>(R.id.edtDialogLyrics) // THÊM DÒNG NÀY
         val btnSave = dialogView.findViewById<Button>(R.id.btnDialogSave)
 
-        // Điền sẵn dữ liệu cũ vào form
         edtTitle.setText(song.title)
         edtArtist.setText(song.artist)
         edtGenre.setText(song.genre)
         edtCover.setText(song.coverUrl)
         edtMp3.setText(song.mp3Url)
+        edtLyrics.setText(song.lyrics) // ĐỔI LỜI BÀI HÁT CŨ VÀO Ô NHẬP
 
-        btnSave.text = "CẬP NHẬT BÀI HÁT" // Đổi chữ trên nút
+        btnSave.text = "CẬP NHẬT BÀI HÁT"
 
         editSongDialog = AlertDialog.Builder(this).setView(dialogView).create()
 
         btnSave.setOnClickListener {
-            // Tạo đối tượng Song mới với ID cũ nhưng dữ liệu mới
             val updatedSong = Song(
                 id = song.id,
                 title = edtTitle.text.toString().trim(),
                 artist = edtArtist.text.toString().trim(),
                 coverUrl = edtCover.text.toString().trim(),
                 mp3Url = edtMp3.text.toString().trim(),
-                genre = edtGenre.text.toString().trim()
+                genre = edtGenre.text.toString().trim(),
+                lyrics = edtLyrics.text.toString().trim() // CẬP NHẬT LỜI BÀI HÁT MỚI
             )
             viewModel.updateSongData(updatedSong)
         }
@@ -161,7 +163,7 @@ class AdminActivity : AppCompatActivity() {
                         Toast.makeText(this@AdminActivity, "Đã xóa bài hát", Toast.LENGTH_SHORT).show()
                         viewModel.resetState()
                     }
-                    is AdminState.SuccessUpdate -> { // BẮT SỰ KIỆN CẬP NHẬT THÀNH CÔNG
+                    is AdminState.SuccessUpdate -> {
                         binding.progressBarAdminList.visibility = View.GONE
                         Toast.makeText(this@AdminActivity, "Đã cập nhật bài hát!", Toast.LENGTH_SHORT).show()
                         editSongDialog?.dismiss()

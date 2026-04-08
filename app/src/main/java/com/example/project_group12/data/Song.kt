@@ -10,7 +10,8 @@ data class Song(
     val title: String,           // Tên bài hát
     val artist: String,          // Tên ca sĩ
     val coverUrl: String,        // Link ảnh bìa
-    val mp3Url: String,          // Link nhạc trực tiếp (.mp3)
+    val mp3Url: String,          // Link nhạc t
     val genre: String,           // Thể loại nhạc
-    val isFavorite: Boolean = false // Trạng thái yêu thích
+    var isFavorite: Boolean = false, // Trạng thái yêu thích
+    val lyrics: String = ""      // Lời bài hát
 )

@@ -14,7 +14,7 @@ sealed class AdminState {
     object Loading : AdminState()
     object SuccessAdd : AdminState()
     object SuccessDelete : AdminState()
-    object SuccessUpdate : AdminState() // TRẠNG THÁI MỚI
+    object SuccessUpdate : AdminState()
     data class Error(val message: String) : AdminState()
 }
 
@@ -66,14 +66,16 @@ class AdminViewModel(private val repository: SongRepository) : ViewModel() {
         return "\\p{InCombiningDiacriticalMarks}+".toRegex().replace(normalized, "").lowercase()
     }
 
-    fun uploadNewSong(title: String, artist: String, coverUrl: String, mp3Url: String, genre: String) {
+    // ---> CẬP NHẬT Ở ĐÂY: Thêm lyrics: String <---
+    fun uploadNewSong(title: String, artist: String, coverUrl: String, mp3Url: String, genre: String, lyrics: String) {
         if (title.isBlank() || mp3Url.isBlank()) {
             _adminState.value = AdminState.Error("Tên bài hát và Link MP3 không được để trống!")
             return
         }
         _adminState.value = AdminState.Loading
         viewModelScope.launch {
-            val result = repository.addSong(title, artist, coverUrl, mp3Url, genre)
+            // Truyền thêm lyrics xuống cho Repository
+            val result = repository.addSong(title, artist, coverUrl, mp3Url, genre, lyrics)
             result.onSuccess {
                 _adminState.value = AdminState.SuccessAdd
                 loadSongs()
@@ -83,7 +85,7 @@ class AdminViewModel(private val repository: SongRepository) : ViewModel() {
         }
     }
 
-    // --- HÀM MỚI: Xử lý cập nhật bài hát ---
+    // --- Xử lý cập nhật bài hát ---
     fun updateSongData(song: Song) {
         _adminState.value = AdminState.Loading
         viewModelScope.launch {

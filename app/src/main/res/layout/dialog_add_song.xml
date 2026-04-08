@@ -28,59 +28,72 @@
             android:shadowColor="@color/neon_pink"
             android:shadowRadius="8"/>
 
-        <EditText 
-            android:id="@+id/edtDialogTitle" 
-            android:layout_width="match_parent" 
-            android:layout_height="50dp" 
-            android:background="@drawable/bg_edittext_glass" 
-            android:textColor="#FFF" 
-            android:textColorHint="@color/text_secondary" 
-            android:paddingHorizontal="16dp" 
-            android:hint="Tên bài hát" 
+        <EditText
+            android:id="@+id/edtDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext_glass"
+            android:textColor="#FFF"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="16dp"
+            android:hint="Tên bài hát"
             android:layout_marginBottom="12dp"/>
-            
-        <EditText 
-            android:id="@+id/edtDialogArtist" 
-            android:layout_width="match_parent" 
-            android:layout_height="50dp" 
-            android:background="@drawable/bg_edittext_glass" 
-            android:textColor="#FFF" 
-            android:textColorHint="@color/text_secondary" 
-            android:paddingHorizontal="16dp" 
-            android:hint="Tên ca sĩ" 
+
+        <EditText
+            android:id="@+id/edtDialogArtist"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext_glass"
+            android:textColor="#FFF"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="16dp"
+            android:hint="Tên ca sĩ"
             android:layout_marginBottom="12dp"/>
-            
-        <EditText 
-            android:id="@+id/edtDialogGenre" 
-            android:layout_width="match_parent" 
-            android:layout_height="50dp" 
-            android:background="@drawable/bg_edittext_glass" 
-            android:textColor="#FFF" 
-            android:textColorHint="@color/text_secondary" 
-            android:paddingHorizontal="16dp" 
-            android:hint="Thể loại (Pop, Rap...)" 
+
+        <EditText
+            android:id="@+id/edtDialogGenre"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext_glass"
+            android:textColor="#FFF"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="16dp"
+            android:hint="Thể loại (Pop, Rap...)"
             android:layout_marginBottom="12dp"/>
-            
-        <EditText 
-            android:id="@+id/edtDialogCover" 
-            android:layout_width="match_parent" 
-            android:layout_height="50dp" 
-            android:background="@drawable/bg_edittext_glass" 
-            android:textColor="#FFF" 
-            android:textColorHint="@color/text_secondary" 
-            android:paddingHorizontal="16dp" 
-            android:hint="Link Ảnh bìa (URL)" 
+
+        <EditText
+            android:id="@+id/edtDialogCover"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext_glass"
+            android:textColor="#FFF"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="16dp"
+            android:hint="Link Ảnh bìa (URL)"
             android:layout_marginBottom="12dp"/>
-            
-        <EditText 
-            android:id="@+id/edtDialogMp3" 
-            android:layout_width="match_parent" 
-            android:layout_height="50dp" 
-            android:background="@drawable/bg_edittext_glass" 
-            android:textColor="#FFF" 
-            android:textColorHint="@color/text_secondary" 
-            android:paddingHorizontal="16dp" 
-            android:hint="Link Nhạc (URL)" 
+
+        <EditText
+            android:id="@+id/edtDialogMp3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext_glass"
+            android:textColor="#FFF"
+            android:textColorHint="@color/text_secondary"
+            android:paddingHorizontal="16dp"
+            android:hint="Link Nhạc (URL)"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/edtDialogLyrics"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/bg_edittext_glass"
+            android:textColor="#FFF"
+            android:textColorHint="@color/text_secondary"
+            android:padding="16dp"
+            android:gravity="top|start"
+            android:hint="Dán lời bài hát chuẩn LRC vào đây (Tùy chọn)..."
+            android:inputType="textMultiLine"
             android:layout_marginBottom="24dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -93,6 +106,6 @@
             android:background="@drawable/bg_button_neon"
             android:textSize="16sp"
             android:elevation="8dp"/>
-            
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
